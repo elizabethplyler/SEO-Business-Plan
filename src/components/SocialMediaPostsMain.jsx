@@ -14,7 +14,7 @@ function SocialMediaPostsMain() {
         <div className="container">
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
             <img 
-              src="/assets/logos/Working__imb_icon_white_webready.png" 
+              src={`${import.meta.env.BASE_URL}assets/logos/Working__imb_icon_white_webready.png`}
               alt="IMB Logo" 
               style={{ height: '50px', width: 'auto' }}
             />

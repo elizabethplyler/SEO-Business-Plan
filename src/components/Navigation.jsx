@@ -10,7 +10,7 @@ function Navigation() {
       <div className="nav-container">
         <Link to="/" className="nav-logo">
           <img 
-            src="/assets/logos/Working__imb_icon_white_webready.png" 
+            src={`${import.meta.env.BASE_URL}assets/logos/Working__imb_icon_white_webready.png`}
             alt="IMB Logo" 
             className="nav-logo-img"
           />

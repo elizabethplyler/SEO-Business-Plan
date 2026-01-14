@@ -24,7 +24,7 @@
         // https://username.github.io/repo-name/?/one/two&a=b~and~c=d#qwe.
         // But if pathSegmentsToKeep is set to 1, it will redirect to
         // https://username.github.io/repo-name/one/?/two&a=b~and~c=d#qwe.
-        var pathSegmentsToKeep = 0;
+        var pathSegmentsToKeep = 1; // Keep the repo name segment for project pages
 
         var l = window.location;
         l.replace(
