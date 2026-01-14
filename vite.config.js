@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: './', // Use relative paths for GitHub Pages compatibility
+  base: '/SEO-Business-Plan/', // GitHub Pages project path
   server: {
     port: 3000,
     open: true
