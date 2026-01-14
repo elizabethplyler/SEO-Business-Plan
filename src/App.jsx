@@ -6,8 +6,11 @@ import SocialMediaPosts from './components/SocialMediaPosts';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
+  // Use basename for production (GitHub Pages), but not for development
+  const basename = import.meta.env.PROD ? '/SEO-Business-Plan' : '';
+  
   return (
-    <BrowserRouter basename="/SEO-Business-Plan">
+    <BrowserRouter basename={basename}>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<MainPage />} />
