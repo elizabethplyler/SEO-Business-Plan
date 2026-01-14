@@ -1,0 +1,236 @@
+.social-posts-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 20px;
+}
+
+.course-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.course-header-image {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.platform-section {
+  margin-bottom: 4rem;
+}
+
+.platform-title {
+  font-size: 2rem;
+  color: var(--imb-sarum-blue);
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid var(--imb-orange);
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.posts-grid-centered {
+  display: flex;
+  justify-content: center;
+  grid-template-columns: none;
+}
+
+/* Facebook/Instagram Post Style */
+.fb-post, .ig-post {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  max-width: 500px;
+}
+
+.fb-post-header, .ig-post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.fb-profile-pic, .ig-profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1rem;
+  border: 2px solid #e0e0e0;
+}
+
+.fb-profile-info, .ig-profile-info {
+  flex: 1;
+}
+
+.fb-username, .ig-username {
+  font-weight: 600;
+  color: var(--imb-sarum-blue);
+  margin-bottom: 0.25rem;
+}
+
+.fb-timestamp, .ig-timestamp {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.fb-post-image, .ig-post-image, .twitter-post-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.fb-post-content, .ig-post-content {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: var(--imb-text-dark);
+}
+
+.fb-post-content p, .ig-post-content p {
+  margin-bottom: 0.5rem;
+}
+
+.fb-post-content a, .ig-post-content a {
+  color: var(--imb-orange);
+  word-break: break-all;
+}
+
+.fb-hashtags, .ig-hashtags {
+  color: #00376b;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+/* Twitter/X Post Style */
+.twitter-post {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  max-width: 500px;
+}
+
+.twitter-post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.twitter-profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1rem;
+  border: 2px solid #e0e0e0;
+}
+
+.twitter-profile-info {
+  flex: 1;
+}
+
+.twitter-username {
+  font-weight: 600;
+  color: var(--imb-sarum-blue);
+  margin-bottom: 0.25rem;
+}
+
+.twitter-handle {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.twitter-post-content {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: var(--imb-text-dark);
+}
+
+.twitter-post-content p {
+  margin-bottom: 0.5rem;
+}
+
+.twitter-post-content a {
+  color: #1d9bf0;
+  word-break: break-all;
+}
+
+.twitter-hashtags {
+  color: #1d9bf0;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.twitter-actions {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  margin-top: 0.75rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.twitter-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #666;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 20px;
+  transition: all 0.2s;
+}
+
+.twitter-action-btn:hover {
+  background: #f0f0f0;
+}
+
+.twitter-action-icon {
+  font-size: 1.1rem;
+}
+
+/* Explore More Courses Section */
+.explore-more-section {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.explore-more-section p {
+  font-size: 0.95rem;
+  color: var(--imb-text-dark, #333);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.explore-more-section .explore-link {
+  color: var(--imb-orange, #ff6600);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.explore-more-section .explore-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fb-post, .ig-post, .twitter-post {
+    max-width: 100%;
+  }
+}

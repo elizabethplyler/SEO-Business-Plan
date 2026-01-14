@@ -1,0 +1,332 @@
+/* ============================================
+   Enhanced Course Card Styles
+   With HTML5 semantics, accessibility, and interactivity
+   ============================================ */
+
+/* Screen reader only class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Main card container */
+.course-card {
+  background: var(--imb-white);
+  border: 1px solid var(--imb-gray-medium);
+  border-radius: 8px;
+  padding: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+  /* Entrance animation */
+  animation: cardFadeIn 0.5s ease-out;
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover state - enhanced lift and shadow */
+.course-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  border-color: var(--imb-ripened-fig);
+}
+
+/* Focus state - keyboard navigation */
+.course-card:focus {
+  outline: 3px solid var(--imb-ripened-fig);
+  outline-offset: 4px;
+  border-color: var(--imb-ripened-fig);
+}
+
+.course-card:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.course-card:focus-visible {
+  outline: 3px solid var(--imb-ripened-fig);
+  outline-offset: 4px;
+  border-color: var(--imb-ripened-fig);
+  box-shadow: 0 0 0 4px rgba(184, 58, 75, 0.2);
+}
+
+/* Focus indicator overlay */
+.course-card-focus-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid var(--imb-ripened-fig);
+  border-radius: 8px;
+  pointer-events: none;
+  animation: focusPulse 2s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes focusPulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.01);
+  }
+}
+
+/* Figure container for semantic image */
+.course-card-figure {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Image wrapper for zoom effect */
+.course-card-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  background-color: var(--imb-gray-light);
+}
+
+.course-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s ease;
+  will-change: transform;
+}
+
+/* Image zoom on hover */
+.course-card:hover .course-card-image {
+  transform: scale(1.1);
+}
+
+/* Image overlay on hover */
+.course-card-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(27, 54, 93, 0) 0%,
+    rgba(27, 54, 93, 0.3) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.course-card:hover .course-card-image-overlay {
+  opacity: 1;
+}
+
+/* Content area */
+.course-card-content {
+  padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  background: var(--imb-white);
+  transition: background-color 0.3s ease;
+}
+
+.course-card:hover .course-card-content {
+  background: var(--imb-white);
+}
+
+/* Title styling with subtle animation */
+.course-card-title {
+  margin-bottom: 1rem;
+  color: var(--imb-sarum-blue);
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.2s ease;
+  transform-origin: left;
+}
+
+.course-card:hover .course-card-title {
+  color: var(--imb-ripened-fig);
+  transform: translateX(4px);
+}
+
+/* Description styling */
+.course-card-description {
+  color: var(--imb-text-light);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  flex: 1;
+  font-weight: 400;
+  line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+.course-card:hover .course-card-description {
+  color: var(--imb-text-dark);
+}
+
+/* Button wrapper for positioning */
+.course-card-button-wrapper {
+  position: relative;
+  margin-top: auto;
+}
+
+/* Enhanced button styling */
+.course-card-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.course-card-button:hover {
+  background-color: var(--imb-white) !important;
+  color: var(--imb-orange) !important;
+  border: 2px solid var(--imb-orange) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(232, 119, 34, 0.4);
+}
+
+.course-card-button:active {
+  transform: translateY(0);
+}
+
+.course-card-button:focus {
+  outline: 3px solid var(--imb-white);
+  outline-offset: 2px;
+}
+
+.course-card-button:focus-visible {
+  outline: 3px solid var(--imb-white);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
+}
+
+/* Ripple effect */
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  pointer-events: none;
+  animation: rippleAnimation 0.6s ease-out;
+  transform: scale(0);
+}
+
+@keyframes rippleAnimation {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(20);
+    opacity: 0;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .course-card,
+  .course-card-image,
+  .course-card-image-overlay,
+  .course-card-title,
+  .course-card-description,
+  .course-card-button {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .course-card:hover {
+    transform: translateY(-2px);
+  }
+  
+  .course-card:hover .course-card-image {
+    transform: scale(1);
+  }
+  
+  .course-card:hover .course-card-title {
+    transform: translateX(0);
+  }
+  
+  .ripple-effect {
+    display: none;
+  }
+  
+  .course-card-focus-indicator {
+    animation: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .course-card {
+    border: 2px solid var(--imb-sarum-blue);
+  }
+  
+  .course-card:focus,
+  .course-card:focus-visible {
+    outline: 4px solid var(--imb-ripened-fig);
+    outline-offset: 2px;
+  }
+  
+  .course-card-button:focus,
+  .course-card-button:focus-visible {
+    outline: 3px solid var(--imb-white);
+    outline-offset: 3px;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .course-card {
+    animation-duration: 0.3s;
+  }
+  
+  .course-card:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+  
+  .course-card-image-wrapper {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .course-card-content {
+    padding: 1.5rem;
+  }
+  
+  .course-card-image-wrapper {
+    height: 200px;
+  }
+}
