@@ -14,21 +14,6 @@ function CampaignLandingPage() {
     <>
       <Navigation />
       <Breadcrumbs />
-      <header className="page-header">
-        <div className="container">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <img 
-              src={`${import.meta.env.BASE_URL}assets/logos/Working__imb_icon_white_webready.png`}
-              alt="IMB Logo" 
-              style={{ height: '50px', width: 'auto' }}
-            />
-            <div>
-              <h1>International Mission Board</h1>
-              <p>Training courses to equip you for the Great Pursuit</p>
-            </div>
-          </div>
-        </div>
-      </header>
 
       <main id="main-content">
         {showCategoryPage ? (
