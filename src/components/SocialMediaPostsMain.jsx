@@ -1,10 +1,22 @@
+import { useEffect } from 'react';
 import Navigation from './Navigation';
 import Breadcrumbs from './Breadcrumbs';
 import CourseCard from './CourseCard';
 import { getAllCourses } from '../utils/Note';
+import { injectJsonLd, getBaseUrl, buildWebPageSchema } from '../utils/jsonld';
 
 function SocialMediaPostsMain() {
   const courses = getAllCourses();
+
+  useEffect(() => {
+    const baseUrl = getBaseUrl();
+    const url = baseUrl.replace(/\/$/, '') + '/social-media-posts';
+    injectJsonLd(buildWebPageSchema({
+      name: 'Course Social Media Posts',
+      description: "Select a course to view its social media posts for Facebook, Instagram, and X (Twitter).",
+      url,
+    }));
+  }, []);
 
   return (
     <>

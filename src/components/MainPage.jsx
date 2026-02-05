@@ -1,10 +1,29 @@
+import { useEffect } from 'react';
 import Navigation from './Navigation';
 import Breadcrumbs from './Breadcrumbs';
 import CourseCard from './CourseCard';
 import { getMainCourses } from '../utils/Note';
+import {
+  injectJsonLd,
+  getBaseUrl,
+  buildOrganizationSchema,
+  buildWebSiteSchema,
+  buildItemListSchema,
+} from '../utils/jsonld';
 
 function MainPage() {
   const courses = getMainCourses();
+
+  useEffect(() => {
+    const baseUrl = getBaseUrl();
+    const mainCourses = getMainCourses();
+    const schemas = [
+      buildOrganizationSchema(),
+      buildWebSiteSchema(baseUrl),
+      buildItemListSchema(mainCourses, baseUrl),
+    ];
+    injectJsonLd(schemas);
+  }, []);
 
   return (
     <>

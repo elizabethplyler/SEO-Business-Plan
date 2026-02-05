@@ -1,12 +1,29 @@
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Navigation from './Navigation';
 import Breadcrumbs from './Breadcrumbs';
 import { getCourseById } from '../utils/Note';
+import { injectJsonLd, getBaseUrl, buildCourseSchema, buildWebPageSchema } from '../utils/jsonld';
 import '../styles/social-media-posts.css';
 
 function SocialMediaPosts() {
   const { courseId } = useParams();
   const course = getCourseById(courseId);
+
+  useEffect(() => {
+    const c = getCourseById(courseId);
+    if (!c) return;
+    const baseUrl = getBaseUrl();
+    const pageUrl = baseUrl.replace(/\/$/, '') + '/social-media-posts/course/' + courseId;
+    injectJsonLd([
+      buildCourseSchema(c, { baseUrl }),
+      buildWebPageSchema({
+        name: 'Social Media Posts',
+        description: `Social media posts for ${c.title} - Facebook, Instagram, and X (Twitter).`,
+        url: pageUrl,
+      }),
+    ]);
+  }, [courseId]);
 
   if (!course) {
     return (

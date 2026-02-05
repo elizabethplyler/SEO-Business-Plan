@@ -1,14 +1,27 @@
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Navigation from './Navigation';
 import Breadcrumbs from './Breadcrumbs';
 import CourseDetail from './CourseDetail';
 import CategoryPage from './CategoryPage';
-import { getCourseById, isCategoryPage } from '../utils/Note';
+import { getCourseById, isCategoryPage, getSubCourses } from '../utils/Note';
+import { injectJsonLd, getBaseUrl, buildCourseSchema, buildItemListSchema } from '../utils/jsonld';
 
 function CampaignLandingPage() {
   const { courseId } = useParams();
   const course = getCourseById(courseId);
   const showCategoryPage = isCategoryPage(courseId);
+
+  useEffect(() => {
+    const c = getCourseById(courseId);
+    if (!c) return;
+    const baseUrl = getBaseUrl();
+    const schemas = [buildCourseSchema(c, { baseUrl })];
+    if (isCategoryPage(courseId)) {
+      schemas.push(buildItemListSchema(getSubCourses(courseId), baseUrl));
+    }
+    injectJsonLd(schemas);
+  }, [courseId]);
 
   return (
     <>
